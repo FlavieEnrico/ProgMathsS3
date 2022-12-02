@@ -7,4 +7,6 @@ Bienvenue dans une bibliothèque haute en couleurs, qui met en oeuvre les plus s
 
 ## Procédure d'installation pour les collaborateurs :
 
+git clone
+
 ## Visionner le rapport en ligne : 
