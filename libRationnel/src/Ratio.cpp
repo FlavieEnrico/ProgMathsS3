@@ -65,18 +65,28 @@ Ratio Ratio::operator*(const Ratio &r) const {
     return mult;
 }
 
-/*
-Ratio Ratio::operator/(const Ratio &r) const {
 
+Ratio Ratio::operator/(const Ratio &r) const {
+    Ratio r2=r.inverse();
+    return *this*r2;
 }
 
 // Other operators : 
 
-Ratio inverse(const Ratio &r) const {
+Ratio Ratio::inverse() const {
+    Ratio inv;
+    int a = this->Num();
+    inv.Num(this->Denom());
+    if (a<0) {
+        inv.Num(-inv.Num());
+        a=-a;
+    }
+    inv.Denom(a);
+    return inv;
+}
+/*
+Ratio Ratio::abs() const {
 
 }
 
-Ratio abs(const Ratio &r) const {
-
-}
 */

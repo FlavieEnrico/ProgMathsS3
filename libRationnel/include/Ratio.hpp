@@ -48,8 +48,8 @@ public:
     Ratio operator*(const Ratio &r) const;
     Ratio operator/(const Ratio &r) const;
 
-    Ratio inverse(const Ratio &r) const;
-    Ratio abs(const Ratio &r) const;
+    Ratio inverse() const;
+    Ratio abs() const;
 
 };
 
