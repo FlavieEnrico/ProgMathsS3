@@ -6,11 +6,11 @@
 
 // Constructors 
 
-Ratio::Ratio() : num(), denom()
+Ratio::Ratio() : num_(), denom_()
 {
 }
 
-Ratio::Ratio(const Ratio &r) : num(r.num), denom(r.denom)
+Ratio::Ratio(const Ratio &r) : num_(r.num_), denom_(r.denom_)
 {
 }
 
@@ -21,12 +21,15 @@ Ratio::~Ratio()
 }
 
 // Operators 
-/*
-Ratio& operator=(const Ratio &ratio) {
 
+Ratio &Ratio::operator=(const Ratio &ratio) {
+    this->Num(ratio.Num());
+    this->Denom(ratio.Denom());
+    return *this;
 }
 
-Ratio operator+(const Ratio &r) const {
+/*
+Ratio Ratio::operator+(const Ratio &r) const {
     
     if (this->getDenom()!=r.getDenom()) {
         // on évite d'écrabouiller les valeurs 
@@ -46,19 +49,24 @@ Ratio operator+(const Ratio &r) const {
     return sum;
 }
 
-Ratio operator-(const Ratio &r) const {
+Ratio Ratio::operator-(const Ratio &r) const {
 
 }
 
-Ratio operator-() const {
+Ratio Ratio::operator-() const {
 
 }
+*/
 
-Ratio operator*(const Ratio &r) const {
-
+Ratio Ratio::operator*(const Ratio &r) const {
+    Ratio mult;
+    mult.Num(r.Num()*this->Num());
+    mult.Denom(r.Denom()*this->Denom());
+    return mult;
 }
 
-Ratio operator/(const Ratio &r) const {
+/*
+Ratio Ratio::operator/(const Ratio &r) const {
 
 }
 

@@ -6,8 +6,8 @@ class Ratio
 {
 private:
     /* data */
-    int num;
-    unsigned int denom;
+    int num_;
+    unsigned int denom_;
 public:
     // default constructor
     Ratio();
@@ -19,24 +19,25 @@ public:
     ~Ratio();
 
     void display() const;
+
     //Getters
 
-    int getNum() {
-        return num;
+    int Num() const {
+        return num_;
     }
 
-    unsigned int getDenom() {
-        return denom;
+    unsigned int Denom() const {
+        return denom_;
     }
 
     //Setters
 
-    void setNum(const int value) {
-        num = value;
+    void Num(int value) {
+        num_ = value;
     }
 
-    void setDenom(const int value) {
-        denom = value;
+    void Denom(unsigned int value) {
+        denom_=value;
     }
 
     //Operators
