@@ -4,8 +4,8 @@
 
 int main(int argc, char const *argv[])
 {
-    Ratio myRatio, myORatio, mult, inversed, div;
-    myRatio.Num(1);
+    Ratio myRatio, myORatio, mult, inversed, div, absolute;
+    myRatio.Num(-1);
     myRatio.Denom(2);
     myORatio.Num(2);
     myORatio.Denom(3);
@@ -19,5 +19,8 @@ int main(int argc, char const *argv[])
 
     div = myRatio/myORatio;
     std::cout << div.Num() << " ; " << div.Denom() << std::endl;
+
+    absolute = myRatio.abs();
+    std::cout << absolute.Num() << " ; " << absolute.Denom() << std::endl;
     return 0;
 }

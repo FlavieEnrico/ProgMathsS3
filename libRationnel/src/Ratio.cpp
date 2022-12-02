@@ -84,9 +84,13 @@ Ratio Ratio::inverse() const {
     inv.Denom(a);
     return inv;
 }
-/*
+
 Ratio Ratio::abs() const {
-
+    Ratio abs;
+    abs.Num(this->Num());
+    if (this->Num()<0) {
+        abs.Num(-abs.Num());
+    }
+    abs.Denom(this->Denom());
+    return abs;
 }
-
-*/
