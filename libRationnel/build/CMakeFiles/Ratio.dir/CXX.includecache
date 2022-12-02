@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/include/Ratio.hpp
+iostream
+-
+
+/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/main.cpp
+iostream
+-
+numeric
+-
+algorithm
+-
+./include/Ratio.hpp
+/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/include/Ratio.hpp
+

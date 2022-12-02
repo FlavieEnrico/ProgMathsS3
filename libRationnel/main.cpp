@@ -1,26 +1,39 @@
 #include <iostream>
+#include <numeric>
+#include <algorithm>
 
 #include "./include/Ratio.hpp"
 
-int main(int argc, char const *argv[])
+int main()
 {
-    Ratio myRatio, myORatio, mult, inversed, div, absolute;
-    myRatio.Num(-1);
+    Ratio myRatio, myORatio, mult, inversed, div, absolute, minus, add, convert;
+    //double testFloat=10.28;
+    //ATTENTION TEST CREATION PAR VALUE 
+    myRatio.Num(1);
     myRatio.Denom(2);
     myORatio.Num(2);
     myORatio.Denom(3);
-    std::cout << myRatio.Num() << " ; " << myRatio.Denom() << std::endl;
+    std::cout << myRatio << std::endl;
 
     mult = myRatio*myORatio;
-    std::cout << mult.Num() << " ; " << mult.Denom() << std::endl;
+    std::cout << mult << std::endl;
 
     inversed = myRatio.inverse();
-    std::cout << inversed.Num() << " ; " << inversed.Denom() << std::endl;
+    std::cout << inversed << std::endl;
 
     div = myRatio/myORatio;
-    std::cout << div.Num() << " ; " << div.Denom() << std::endl;
+    std::cout << div << std::endl;
 
     absolute = myRatio.abs();
-    std::cout << absolute.Num() << " ; " << absolute.Denom() << std::endl;
+    std::cout << absolute << std::endl;
+
+    minus = -myRatio;
+    std::cout << minus << std::endl;
+
+    add = myRatio+myORatio;
+    std::cout << add << std::endl;
+
+    /*convert.convert_float_to_ratio(testFloat, 7);
+    std::cout << convert.Num() << " ; " << convert.Denom() << std::endl;*/
     return 0;
 }

@@ -1,0 +1,1 @@
+/usr/bin/clang++ -g CMakeFiles/Ratio.dir/main.cpp.o CMakeFiles/Ratio.dir/src/Ratio.cpp.o -o Ratio 

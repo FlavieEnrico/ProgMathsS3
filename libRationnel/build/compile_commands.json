@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/build",
+  "command": "/usr/bin/clang++  -I/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/include -g -Wall -Wextra -Wpedantic -pedantic-errors -std=gnu++17 -o CMakeFiles/Ratio.dir/main.cpp.o -c /home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/main.cpp",
+  "file": "/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/main.cpp"
+},
+{
+  "directory": "/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/build",
+  "command": "/usr/bin/clang++  -I/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/include -g -Wall -Wextra -Wpedantic -pedantic-errors -std=gnu++17 -o CMakeFiles/Ratio.dir/src/Ratio.cpp.o -c /home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/src/Ratio.cpp",
+  "file": "/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/src/Ratio.cpp"
+}
+]

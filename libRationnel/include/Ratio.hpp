@@ -5,12 +5,14 @@
 class Ratio
 {
 private:
-    /* data */
-    int num_;
-    unsigned int denom_;
+    int m_num;
+    unsigned int m_denom;
 public:
     // default constructor
     Ratio();
+
+    //value constructor
+    Ratio(const int numValue, const unsigned int denomValue);
 
     //copy constructor
     Ratio(const Ratio &r);
@@ -23,21 +25,21 @@ public:
     //Getters
 
     int Num() const {
-        return num_;
+        return m_num;
     }
 
     unsigned int Denom() const {
-        return denom_;
+        return m_denom;
     }
 
     //Setters
 
     void Num(int value) {
-        num_ = value;
+        m_num = value;
     }
 
     void Denom(unsigned int value) {
-        denom_=value;
+        m_denom=value;
     }
 
     //Operators
@@ -51,6 +53,8 @@ public:
     Ratio inverse() const;
     Ratio abs() const;
 
+    Ratio convert_float_to_ratio(const double &d, int nb_iter) const;
+    Ratio simplify() const;
 };
 
 std::ostream& operator<< (std::ostream& stream, const Ratio& r);

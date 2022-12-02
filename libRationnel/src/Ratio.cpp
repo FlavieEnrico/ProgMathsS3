@@ -6,11 +6,16 @@
 
 // Constructors 
 
-Ratio::Ratio() : num_(), denom_()
+Ratio::Ratio() : m_num(), m_denom()
 {
 }
 
-Ratio::Ratio(const Ratio &r) : num_(r.num_), denom_(r.denom_)
+Ratio::Ratio(const int numValue, const unsigned int denomValue)
+: m_num(numValue), m_denom(denomValue)
+{
+}
+
+Ratio::Ratio(const Ratio &r) : m_num(r.m_num), m_denom(r.m_denom)
 {
 }
 
@@ -28,35 +33,34 @@ Ratio &Ratio::operator=(const Ratio &ratio) {
     return *this;
 }
 
-/*
 Ratio Ratio::operator+(const Ratio &r) const {
-    
-    if (this->getDenom()!=r.getDenom()) {
-        // on évite d'écrabouiller les valeurs 
-        this->setNum(this->getNum()*r.getDenom());
-        this->setDenom(this->getDenom()*r.getDenom());
-        r.setNum(this->getDenom()*r.getNum());
-        r.setDenom(this->getDenom()*r.getDenom());
+    Ratio result;
+    int left, right;
+    if (this->Denom()==r.Denom()) {
+        result.Num(this->Num()+r.Num());
+        result.Denom(this->Denom());
+        return result.simplify();
     }
-    Ratio sum;
-    sum.setNum(this->getNum()+r.getNum()); 
-    sum.setDenom(this->getDenom());
-    int pgcd = std::gcd(sum.getNum(),sum.getDenom());
-    if (pgcd!=1) {
-        sum.setNum((sum.getNum())/pgcd);
-        sum.setDenom((sum.getDenom())/pgcd);
-    }
-    return sum;
+    left=this->Num()*r.Denom();
+    right=this->Denom()*r.Num();
+    result.Num(left+right);
+    result.Denom(this->Denom()*r.Denom());
+    return result.simplify();
 }
 
+/*
 Ratio Ratio::operator-(const Ratio &r) const {
 
 }
+*/
 
 Ratio Ratio::operator-() const {
-
+    Ratio minus;
+    minus.Denom(this->Denom());
+    minus.Num(-(this->Num()));
+    return minus;
 }
-*/
+
 
 Ratio Ratio::operator*(const Ratio &r) const {
     Ratio mult;
@@ -67,8 +71,7 @@ Ratio Ratio::operator*(const Ratio &r) const {
 
 
 Ratio Ratio::operator/(const Ratio &r) const {
-    Ratio r2=r.inverse();
-    return *this*r2;
+    return (*this)*(r.inverse());
 }
 
 // Other operators : 
@@ -79,7 +82,7 @@ Ratio Ratio::inverse() const {
     inv.Num(this->Denom());
     if (a<0) {
         inv.Num(-inv.Num());
-        a=-a;
+        a=std::abs(a);
     }
     inv.Denom(a);
     return inv;
@@ -93,4 +96,38 @@ Ratio Ratio::abs() const {
     }
     abs.Denom(this->Denom());
     return abs;
+}
+
+/*Ratio Ratio::convert_float_to_ratio(const double &d, int nbIter) const {
+    Ratio myRatio;
+    if (d==0) {
+        myRatio.Num(0);
+        myRatio.Denom(1);
+        return myRatio;
+    }
+    if (nbIter==0) {
+        myRatio.Num(0);
+        myRatio.Denom(1);
+        return myRatio;
+    }
+    if (d<1) {
+        return (convert_float_to_ratio(1/d,nbIter)).inverse();
+    }
+    Ratio q;
+    q.Num(floor(d));
+    q.Denom(1);
+    return q+convert_float_to_ratio(d-q.Num(), nbIter-1);
+}*/
+
+Ratio Ratio::simplify() const {
+    Ratio simple;
+    int pgcd=std::gcd(this->Num(), this->Denom());
+    simple.Num(this->Num()/pgcd);
+    simple.Denom(this->Denom()/pgcd);
+    return simple;
+}
+
+std::ostream &operator<<(std::ostream &os, const Ratio &r) {
+    os << r.Num() << " / " << r.Denom();
+    return os;
 }
