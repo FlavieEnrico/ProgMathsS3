@@ -74,6 +74,67 @@ Ratio Ratio::operator/(const Ratio &r) const {
     return ((*this)*(r.inverse())).simplify();
 }
 
+//Comparison operators
+
+bool Ratio::operator==(const Ratio &ratio) {
+    this->simplify();
+    ratio.simplify();
+    if (this->Num()==ratio.Num() && this->Denom()==ratio.Denom()) {
+        return true;
+    }
+    return false;
+}
+
+bool Ratio::operator!=(const Ratio &ratio) {
+    this->simplify();
+    ratio.simplify();
+    if (this->Num()!=ratio.Num() || this->Denom()!=ratio.Denom()) {
+        return true;
+    }
+    return false;
+}
+
+bool Ratio::operator>(const Ratio &ratio) {
+    double d1,d2;
+    d1=this->Num()/this->Denom();
+    d2=ratio.Num()/ratio.Denom();
+    if (d1>d2) {
+        return true;
+    }
+    return false;
+}
+
+bool Ratio::operator<(const Ratio &ratio) {
+    double d1,d2;
+    d1=this->Num()/this->Denom();
+    d2=ratio.Num()/ratio.Denom();
+    if (d1<d2) {
+        return true;
+    }
+    return false;
+
+}
+
+bool Ratio::operator<=(const Ratio &ratio) {
+    double d1,d2;
+    d1=this->Num()/this->Denom();
+    d2=ratio.Num()/ratio.Denom();
+    if (d1<=d2) {
+        return true;
+    }
+    return false;
+}
+
+bool Ratio::operator>=(const Ratio &ratio) {
+    double d1,d2;
+    d1=this->Num()/this->Denom();
+    d2=ratio.Num()/ratio.Denom();
+    if (d1>=d2) {
+        return true;
+    }
+    return false;
+}
+
 // Other operators : 
 
 Ratio Ratio::inverse() const {

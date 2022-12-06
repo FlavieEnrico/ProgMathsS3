@@ -50,6 +50,13 @@ public:
     Ratio operator*(const Ratio &r) const;
     Ratio operator/(const Ratio &r) const;
 
+    bool operator==(const Ratio &ratio);
+    bool operator!=(const Ratio &ratio);
+    bool operator>(const Ratio &ratio);
+    bool operator<(const Ratio &ratio);
+    bool operator<=(const Ratio &ratio);
+    bool operator>=(const Ratio &ratio);
+
     Ratio inverse() const;
     Ratio abs() const;
 

@@ -35,6 +35,24 @@ int main()
     add = myRatio+myORatio;
     std::cout << add << std::endl;
 
+    //Comparison operators test
+
+    if(add==mult) {
+        std::cout << "c'est un mensonge" << std::endl;
+    }
+
+    if(add!=mult) {
+        std::cout << "c'est la vérité" << std::endl;
+    }
+
+    if(add>mult) {
+        std::cout << "c'est la vérité" << std::endl;
+    }
+
+    if(add<mult) {
+        std::cout << "c'est un mensonge" << std::endl;
+    }
+
     /*convert.convert_float_to_ratio(testFloat, 7);
     std::cout << convert << std::endl;*/
     return 0;
