@@ -20,3 +20,13 @@ algorithm
 ./include/Ratio.hpp
 /home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/include/Ratio.hpp
 
+/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/src/Ratio.cpp
+iostream
+-
+cmath
+-
+numeric
+-
+../include/Ratio.hpp
+/home/6ima2/flavie.enrico/Documents/ProjetProgMaths/libRationnel/include/Ratio.hpp
+

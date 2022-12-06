@@ -6,14 +6,16 @@
 
 int main()
 {
-    Ratio myRatio, myORatio, mult, inversed, div, absolute, minus, add, convert;
+    Ratio mult, inversed, div, absolute, minus, add, convert;
     //double testFloat=10.28;
-    //ATTENTION TEST CREATION PAR VALUE 
-    myRatio.Num(1);
-    myRatio.Denom(2);
-    myORatio.Num(2);
-    myORatio.Denom(3);
+
+    Ratio myRatio(1,2);
+    Ratio myORatio(2,3);
+    
     std::cout << myRatio << std::endl;
+
+    Ratio myCopyRatio(myORatio);
+    std::cout << "Copy constructor : " << myCopyRatio << std::endl;
 
     mult = myRatio*myORatio;
     std::cout << mult << std::endl;
@@ -34,6 +36,6 @@ int main()
     std::cout << add << std::endl;
 
     /*convert.convert_float_to_ratio(testFloat, 7);
-    std::cout << convert.Num() << " ; " << convert.Denom() << std::endl;*/
+    std::cout << convert << std::endl;*/
     return 0;
 }

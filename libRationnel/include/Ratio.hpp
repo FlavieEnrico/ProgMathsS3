@@ -12,7 +12,7 @@ public:
     Ratio();
 
     //value constructor
-    Ratio(const int numValue, const unsigned int denomValue);
+    Ratio(const int &numValue, const unsigned int &denomValue);
 
     //copy constructor
     Ratio(const Ratio &r);

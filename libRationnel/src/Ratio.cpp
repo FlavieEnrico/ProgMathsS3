@@ -7,10 +7,10 @@
 // Constructors 
 
 Ratio::Ratio() : m_num(), m_denom()
-{
+{    
 }
 
-Ratio::Ratio(const int numValue, const unsigned int denomValue)
+Ratio::Ratio(const int &numValue, const unsigned int &denomValue)
 : m_num(numValue), m_denom(denomValue)
 {
 }
@@ -58,7 +58,7 @@ Ratio Ratio::operator-() const {
     Ratio minus;
     minus.Denom(this->Denom());
     minus.Num(-(this->Num()));
-    return minus;
+    return minus.simplify();
 }
 
 
@@ -66,12 +66,12 @@ Ratio Ratio::operator*(const Ratio &r) const {
     Ratio mult;
     mult.Num(r.Num()*this->Num());
     mult.Denom(r.Denom()*this->Denom());
-    return mult;
+    return mult.simplify();
 }
 
 
 Ratio Ratio::operator/(const Ratio &r) const {
-    return (*this)*(r.inverse());
+    return ((*this)*(r.inverse())).simplify();
 }
 
 // Other operators : 
@@ -85,7 +85,7 @@ Ratio Ratio::inverse() const {
         a=std::abs(a);
     }
     inv.Denom(a);
-    return inv;
+    return inv.simplify();
 }
 
 Ratio Ratio::abs() const {
@@ -95,7 +95,7 @@ Ratio Ratio::abs() const {
         abs.Num(-abs.Num());
     }
     abs.Denom(this->Denom());
-    return abs;
+    return abs.simplify();
 }
 
 /*Ratio Ratio::convert_float_to_ratio(const double &d, int nbIter) const {
