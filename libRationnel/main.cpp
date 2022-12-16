@@ -6,34 +6,41 @@
 
 int main()
 {
-    Ratio mult, inversed, div, absolute, minus, add, convert;
+    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert;
     //double testFloat=10.28;
 
     Ratio myRatio(1,2);
     Ratio myORatio(2,3);
+    Ratio testEqual(1,2);
     
-    std::cout << myRatio << std::endl;
+    std::cout << "Test cout : " << myRatio << std::endl;
 
     Ratio myCopyRatio(myORatio);
     std::cout << "Copy constructor : " << myCopyRatio << std::endl;
 
     mult = myRatio*myORatio;
-    std::cout << mult << std::endl;
+    std::cout << "Test multiplication : " << mult << std::endl;
 
     inversed = myRatio.inverse();
-    std::cout << inversed << std::endl;
+    std::cout << "Test inverse : " << inversed << std::endl;
 
     div = myRatio/myORatio;
-    std::cout << div << std::endl;
+    std::cout << "Test division : " << div << std::endl;
 
     absolute = myRatio.abs();
-    std::cout << absolute << std::endl;
+    std::cout << "Test valeur absolue : " << absolute << std::endl;
 
-    minus = -myRatio;
-    std::cout << minus << std::endl;
+    unitMinus = -myRatio;
+    std::cout << "Test moins unaire : " << unitMinus << std::endl;
 
     add = myRatio+myORatio;
-    std::cout << add << std::endl;
+    std::cout << "Test addition : " << add << std::endl;
+
+    minus = myRatio-myORatio;
+    std::cout << "Test soustraction : " << minus << std::endl;
+
+    /*testEqual*=myRatio;
+    std::cout << testEqual << std::endl;*/
 
     //Comparison operators test
 

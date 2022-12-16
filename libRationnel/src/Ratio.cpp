@@ -48,24 +48,31 @@ Ratio Ratio::operator+(const Ratio &r) const {
     return result.simplify();
 }
 
-/*
-Ratio Ratio::operator-(const Ratio &r) const {
 
+Ratio Ratio::operator-(const Ratio &r) const {
+    Ratio result;
+    int left, right;
+    if (this->Denom()==r.Denom()) {
+        result.Num(this->Num() - r.Num());
+        result.Denom(this->Denom());
+        return result.simplify();
+    }
+    left=this->Num()*r.Denom();
+    right=this->Denom()*r.Num();
+    result.Num(left-right);
+    result.Denom(this->Denom()*r.Denom());
+    return result.simplify();
 }
-*/
+
 
 Ratio Ratio::operator-() const {
-    Ratio minus;
-    minus.Denom(this->Denom());
-    minus.Num(-(this->Num()));
+    Ratio minus(-(this->Num()),this->Denom());
     return minus.simplify();
 }
 
 
 Ratio Ratio::operator*(const Ratio &r) const {
-    Ratio mult;
-    mult.Num(r.Num()*this->Num());
-    mult.Denom(r.Denom()*this->Denom());
+    Ratio mult(r.Num()*this->Num(),r.Denom()*this->Denom());
     return mult.simplify();
 }
 
@@ -172,17 +179,17 @@ Ratio Ratio::abs() const {
         return myRatio;
     }
     if (d<1) {
-        return (convert_float_to_ratio(1/d,nbIter)).inverse();
+        return (this->convert_float_to_ratio(1/d,nbIter)).inverse();
     }
     Ratio q;
     q.Num(floor(d));
     q.Denom(1);
-    return q+convert_float_to_ratio(d-q.Num(), nbIter-1);
+    return q+this->convert_float_to_ratio(d-q.Num(), nbIter-1);
 }*/
 
 Ratio Ratio::simplify() const {
     Ratio simple;
-    int pgcd=std::gcd(this->Num(), this->Denom());
+    int pgcd=std::gcd(std::abs(this->Num()), this->Denom());
     simple.Num(this->Num()/pgcd);
     simple.Denom(this->Denom()/pgcd);
     return simple;
