@@ -6,8 +6,8 @@
 
 int main()
 {
-    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert;
-    //double testFloat=10.28;
+    Ratio mult, inversed, div, absolute, minus, add, convert;
+    double testFloat=10.28;
 
     Ratio myRatio(1,2);
     Ratio myORatio(2,3);
@@ -60,7 +60,7 @@ int main()
         std::cout << "c'est un mensonge" << std::endl;
     }
 
-    /*convert.convert_float_to_ratio(testFloat, 7);
-    std::cout << convert << std::endl;*/
+    convert = convert_float_to_ratio(testFloat, 10);
+    std::cout << convert.simplify() << std::endl;
     return 0;
 }

@@ -65,8 +65,9 @@ public:
     Ratio inverse() const;
     Ratio abs() const;
 
-    Ratio convert_float_to_ratio(const double &d, int nb_iter) const;
+  
     Ratio simplify() const;
 };
 
 std::ostream& operator<< (std::ostream& stream, const Ratio& r);
+Ratio convert_float_to_ratio(const double &d, int nb_iter);

@@ -166,26 +166,22 @@ Ratio Ratio::abs() const {
     return abs.simplify();
 }
 
-/*Ratio Ratio::convert_float_to_ratio(const double &d, int nbIter) const {
-    Ratio myRatio;
+Ratio convert_float_to_ratio(const double &d, int nbIter){
+
     if (d==0) {
-        myRatio.Num(0);
-        myRatio.Denom(1);
-        return myRatio;
+        return Ratio(0,1);
     }
     if (nbIter==0) {
-        myRatio.Num(0);
-        myRatio.Denom(1);
-        return myRatio;
+         return Ratio(0,1);
     }
     if (d<1) {
         return (this->convert_float_to_ratio(1/d,nbIter)).inverse();
     }
-    Ratio q;
-    q.Num(floor(d));
-    q.Denom(1);
-    return q+this->convert_float_to_ratio(d-q.Num(), nbIter-1);
-}*/
+    if(d>=1){
+    const int q = floor(d);
+    return Ratio(q,1)+convert_float_to_ratio(d-double(q), nbIter-1);
+    }
+}
 
 Ratio Ratio::simplify() const {
     Ratio simple;
