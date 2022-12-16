@@ -6,7 +6,7 @@
 
 int main()
 {
-    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert;
+    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt;
     double testFloat=10.28;
 
     Ratio myRatio(1,2);
@@ -39,6 +39,9 @@ int main()
     minus = myRatio-myORatio;
     std::cout << "Test soustraction : " << minus << std::endl;
 
+    sqrt = myRatio.sqrt();
+    std::cout << "Test racine carré : " << sqrt << std::endl;
+
     /*testEqual*=myRatio;
     std::cout << testEqual << std::endl;*/
 
@@ -62,5 +65,8 @@ int main()
 
     convert = convert_float_to_ratio(testFloat, 10);
     std::cout << convert.simplify() << std::endl;
+
+
+
     return 0;
 }
