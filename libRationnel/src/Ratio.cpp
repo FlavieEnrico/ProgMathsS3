@@ -175,7 +175,7 @@ Ratio convert_float_to_ratio(const double &d, int nbIter){
          return Ratio(0,1);
     }
     if (d<1) {
-        return (this->convert_float_to_ratio(1/d,nbIter)).inverse();
+        return (convert_float_to_ratio(1/d,nbIter)).inverse();
     }
     if(d>=1){
     const int q = floor(d);

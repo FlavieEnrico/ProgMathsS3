@@ -6,7 +6,7 @@
 
 int main()
 {
-    Ratio mult, inversed, div, absolute, minus, add, convert;
+    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert;
     double testFloat=10.28;
 
     Ratio myRatio(1,2);
