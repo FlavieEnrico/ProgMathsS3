@@ -64,6 +64,12 @@ public:
 
     Ratio inverse() const;
     Ratio abs() const;
+    Ratio sqrt() const;
+    //Ratio cos() const;
+    Ratio pow(const int &exp) const;
+    //Ratio exp() const;
+
+
 
   
     Ratio simplify() const;

@@ -166,6 +166,27 @@ Ratio Ratio::abs() const {
     return abs.simplify();
 }
 
+Ratio Ratio::sqrt() const{
+    Ratio sqrt_Num;
+    Ratio sqrt_Denom;
+    if(this->Num()>0){
+    double sqrt_Num_d = std::sqrt(this->Num());
+    sqrt_Num = convert_float_to_ratio(sqrt_Num_d,10);
+    }
+    else{
+        std::cout << "On peut pas faire sqrt d'un négatif!" << std::endl;
+    }
+    double sqrt_Denom_d = std::sqrt(this->Denom());
+    sqrt_Denom = convert_float_to_ratio(sqrt_Denom_d,10);
+    Ratio sqrt = sqrt_Num/sqrt_Denom;
+    return sqrt.simplify();
+}
+
+Ratio Ratio::pow(const int &exp) const{
+    Ratio pow(std::pow(this->Num(),exp), std::pow(this->Denom(),exp));
+    return pow;
+}
+
 Ratio convert_float_to_ratio(const double &d, int nbIter){
 
     if (d==0) {
