@@ -182,6 +182,15 @@ Ratio Ratio::sqrt() const{
     return sqrt.simplify();
 }
 
+//Je propose de faire simple d'abord et de voir si on a le temps d'implémenter le triangle de Pascal
+Ratio Ratio::cos() const{
+    float num = this->Num();
+    float denom = this->Denom();
+    float cosarg = num/denom;
+    //std::cout<< cosarg<<std::endl;
+    //std::cout <<std::cos(cosarg) << std::endl;
+    return convert_float_to_ratio(std::cos(cosarg),10);
+}
 
 Ratio Ratio::pow(const int &exp) const{
     Ratio pow(std::pow(this->Num(),exp), std::pow(this->Denom(),exp));

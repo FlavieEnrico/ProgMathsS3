@@ -6,7 +6,7 @@
 
 int main()
 {
-    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,pow,exp;
+    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,cos,pow,exp;
     double testFloat=10.28;
 
     Ratio myRatio(1,2);
@@ -41,6 +41,9 @@ int main()
 
     sqrt = myRatio.sqrt();
     std::cout << "Test racine carré : " << sqrt << std::endl;
+
+    cos = myRatio.cos();
+    std::cout << "Test cosinus : " << cos << std::endl;
 
     pow = myRatio.pow(5);
     std::cout << "Test pow : " << pow << std::endl;
