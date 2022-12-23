@@ -6,7 +6,7 @@
 
 int main()
 {
-    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,pow;
+    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,pow,exp;
     double testFloat=10.28;
 
     Ratio myRatio(1,2);
@@ -45,7 +45,9 @@ int main()
     pow = myRatio.pow(5);
     std::cout << "Test pow : " << pow << std::endl;
 
-    
+    exp = myRatio.exp();
+    std::cout <<"Test exponentiel : " << exp << std::endl;
+
     /*testEqual*=myRatio;
     std::cout << testEqual << std::endl;*/
 

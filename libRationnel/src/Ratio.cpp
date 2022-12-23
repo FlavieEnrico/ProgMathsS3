@@ -182,10 +182,19 @@ Ratio Ratio::sqrt() const{
     return sqrt.simplify();
 }
 
-//(a/b)^k
+
 Ratio Ratio::pow(const int &exp) const{
     Ratio pow(std::pow(this->Num(),exp), std::pow(this->Denom(),exp));
     return pow;
+}
+
+Ratio Ratio::exp() const{
+    float num = this->Num();
+    float denom = this->Denom();
+    float exposant = num/denom;
+    //std::cout<< exposant<<std::endl;
+    //std::cout <<std::exp(exposant) << std::endl;
+    return convert_float_to_ratio(std::exp(exposant),10);
 }
 
 Ratio convert_float_to_ratio(const double &d, int nbIter){
