@@ -6,7 +6,11 @@
 
 int main()
 {
+<<<<<<< HEAD
     Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,pow;
+=======
+    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt;
+>>>>>>> main
     double testFloat=10.28;
 
     Ratio myRatio(1,2);
@@ -42,10 +46,13 @@ int main()
     sqrt = myRatio.sqrt();
     std::cout << "Test racine carré : " << sqrt << std::endl;
 
+<<<<<<< HEAD
     pow = myRatio.pow(5);
     std::cout << "Test pow : " << pow << std::endl;
 
     
+=======
+>>>>>>> main
     /*testEqual*=myRatio;
     std::cout << testEqual << std::endl;*/
 
