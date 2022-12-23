@@ -66,11 +66,7 @@ public:
     Ratio abs() const;
     Ratio sqrt() const;
     //Ratio cos() const;
-<<<<<<< HEAD
     Ratio pow(const int &exp) const;
-=======
-    //Ratio pow() const;
->>>>>>> main
     //Ratio exp() const;
 
 
