@@ -232,6 +232,7 @@ Ratio convert_float_to_ratio(const double &d, int nbIter){
     const int q = floor(d);
     return Ratio(q,1)+convert_float_to_ratio(d-double(q), nbIter-1);
     }
+    return Ratio(0,1);
 }
 
 Ratio Ratio::simplify() const {

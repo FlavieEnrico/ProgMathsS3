@@ -2,7 +2,7 @@
 #include <numeric>
 #include <algorithm>
 
-#include "./include/Ratio.hpp"
+#include "Ratio.hpp"
 
 int main()
 {
