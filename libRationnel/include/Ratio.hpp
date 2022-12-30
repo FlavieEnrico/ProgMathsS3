@@ -66,6 +66,8 @@ public:
     Ratio abs() const;
     Ratio sqrt() const;
     Ratio cos() const;
+    Ratio sin() const;
+    Ratio tan() const;
     Ratio pow(const int &exp) const;
     Ratio exp() const;
 

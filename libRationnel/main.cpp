@@ -6,7 +6,7 @@
 
 int main()
 {
-    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,cos,pow,exp;
+    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,cos, sin, tan,pow,exp;
     double testFloat=10.28;
 
     Ratio myRatio(1,2);
@@ -44,6 +44,12 @@ int main()
 
     cos = myRatio.cos();
     std::cout << "Test cosinus : " << cos << std::endl;
+
+    sin = myRatio.sin();
+    std::cout << "Test sinus : " << sin << std::endl;
+
+    tan = myRatio.tan();
+    std::cout << "Test tangente : " << tan << std::endl;
 
     pow = myRatio.pow(5);
     std::cout << "Test pow : " << pow << std::endl;

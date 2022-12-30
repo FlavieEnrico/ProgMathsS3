@@ -189,7 +189,18 @@ Ratio Ratio::cos() const{
     float cosarg = num/denom;
     //std::cout<< cosarg<<std::endl;
     //std::cout <<std::cos(cosarg) << std::endl;
-    return convert_float_to_ratio(std::cos(cosarg),10);
+    return convert_float_to_ratio(std::cos(cosarg),10).simplify();
+}
+
+Ratio Ratio::sin() const{
+    float num = this->Num();
+    float denom = this->Denom();
+    float sinarg = num/denom;
+    return convert_float_to_ratio(std::sin(sinarg),10).simplify();
+}
+
+Ratio Ratio::tan() const{
+    return (this->sin()/this->cos()).simplify();
 }
 
 Ratio Ratio::pow(const int &exp) const{
