@@ -32,9 +32,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Prevents compiler-specific extensions to C++ because they might allow code to compile on your machine but not on other people's machine
 #set_target_properties(${PROJECT_NAME} PROPERTIES CXX_EXTENSIONS OFF)
 
-# (optional) add a "output" directory in the project binary directory
-file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/output)
-
 # (optional) put the binary files in this directory
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
