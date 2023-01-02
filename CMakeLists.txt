@@ -37,7 +37,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 # add libRationnel
 message(STATUS "libRationnel cmake part ..." )
-add_subdirectory(libRationnel laRatiotheque)
+add_subdirectory(libRationnel)
 include_directories(${CMAKE_SOURCE_DIR}/libRationnel/include) # important : other projects called by this cmake will know this include directory
 
 # add myExamples

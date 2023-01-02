@@ -11,7 +11,7 @@
 /// \section instroduction_sec What for?
 /// With this library is provided an awesome tool to easily experiment with rational numbers. Whether you simply want to play with sums or dive deep into maths with cosine and sine, it has it all ! 
 /// \section install_bigsec How to install
-/// \subsection dependencies_sec Dependecies
+/// \subsection dependencies_sec Dependencies
 /// \li nothing
 /// \li Doxygen (if you want the documentation)
 /// \subsection install_sec Install with cmake (Linux / Mac)
