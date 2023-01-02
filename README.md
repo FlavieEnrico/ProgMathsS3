@@ -8,11 +8,17 @@ Bienvenue dans une bibliothèque haute en couleurs, qui met en oeuvre les plus s
 Ce projet a pour but de créer une structure pour utiliser simplement les nombres rationnels. 
 
 Au sein de la ratiothèque, vous pouvez notamment retrouver :
+
 • des constructeurs par défaut, par copie et par valeurs
+
 • un destructeur
+
 • la surcharge des opérateurs de base (addition, soustraction, multiplication, etc.)
+
 • la surcharge des opérations de comparaison (inférieur ou égal, non-égal, etc.)
+
 • les opérations mathématiques d'algèbre (cosinus, exponentiel, racine carrée, etc.)
+
 • un affichage simplifié des nombres rationnels via la surcharge de l'opérateur <<
 
 ## Procédure d'installation pour les collaborateurs :
