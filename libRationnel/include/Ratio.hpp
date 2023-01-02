@@ -117,10 +117,25 @@ public:
 	/// \return the rational number corresponding to the division of the current rational by the the argument rational
     Ratio operator/(const Ratio &r) const;
 
-    Ratio operator+=(const Ratio &r) const;
-    Ratio operator-=(const Ratio &r) const;
-    Ratio operator*=(const Ratio &r) const;
-    Ratio operator/=(const Ratio &r) const;
+    /// \brief overload of the += operator
+	/// \param  r: the second rational number to consider in the operation
+	/// \return the rational number corresponding to the sum of the two rationals
+    Ratio& operator+=(const Ratio &r);
+
+    /// \brief overload of the -= operator
+	/// \param  r: the second rational number to consider in the operation
+	/// \return the rational number corresponding to the substraction of the two rationals
+    Ratio& operator-=(const Ratio &r);
+
+    /// \brief overload of the *= operator
+	/// \param  r: the second rational number to consider in the operation
+	/// \return the rational number corresponding to the multiplication of the two rationals
+    Ratio& operator*=(const Ratio &r);
+
+    /// \brief overload of the /= operator
+	/// \param  r: the second rational number to consider in the operation
+	/// \return the rational number corresponding to the division of the two rationals
+    Ratio& operator/=(const Ratio &r);
 
     /// \brief overload of the == operator
 	/// \param  r: the rational number which values you want to compare with the current rational
@@ -131,6 +146,11 @@ public:
 	/// \param  r: the rational number which values you want to compare with the current rational
 	/// \return whether the two rational numbers are equivalent or not
     bool operator!=(const Ratio &ratio);
+
+
+
+
+    //Comparison operators
 
     /// \brief overload of the > operator
 	/// \param  r: the rational number which values you want to compare with the current rational
@@ -153,6 +173,14 @@ public:
     bool operator>=(const Ratio &ratio);
 
 
+
+
+    //Other operations
+
+
+    /// \brief convert the rational number into an approximated percentage
+	/// \return the percentage as a rational
+    Ratio convert_to_percentage();
 
     /// \brief return the reciproqual of the given rational
 	/// \return the reciproqual
@@ -187,11 +215,25 @@ public:
 	/// \return the exponential value
     Ratio exp() const;
 
+    /// \brief calculate the e logarithm of the given rational number
+	/// \return the log value
+    Ratio logE() const;
+
+    /// \brief calculate the 10 logarithm of the given rational number
+	/// \return the log value
+    Ratio log10() const;
+
+
 
 
     /// \brief return the given rational as a simplified rational
 	/// \return the simplified rational
     Ratio simplify() const;
+
+
+    /// \brief convert the rational into a float
+	/// \return the given rational as a float
+    float Ratio::convert_ratio_to_float();
 };
 
 /// \brief overload the operator << for Ratio

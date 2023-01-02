@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <numeric>
+#include <stdexcept>
+#include <cassert>
 
 #include "../include/Ratio.hpp"
 
@@ -87,6 +89,25 @@ Ratio Ratio::operator/(const Ratio &r) const {
     return ((*this)*(r.inverse())).simplify();
 }
 
+Ratio& Ratio::operator+=(const Ratio &r) {
+    *this = *this + r;
+    return *this;
+}
+
+Ratio& Ratio::operator-=(const Ratio &r) {
+    *this = *this - r;
+    return *this;
+}
+Ratio& Ratio::operator*=(const Ratio &r) {
+    *this = *this * r;
+    return *this;
+}
+
+Ratio& Ratio::operator/=(const Ratio &r) {
+    *this = *this / r;
+    return *this;
+}
+
 //Comparison operators
 
 bool Ratio::operator==(const Ratio &ratio) {
@@ -108,58 +129,38 @@ bool Ratio::operator!=(const Ratio &ratio) {
 }
 
 bool Ratio::operator>(const Ratio &ratio) {
-    double d1,d2;
-    d1=this->Num()/this->Denom();
-    d2=ratio.Num()/ratio.Denom();
-    if (d1>d2) {
-        return true;
-    }
-    return false;
+    return (this->Num()/this->Denom()>ratio.Num()/ratio.Denom());
 }
 
 bool Ratio::operator<(const Ratio &ratio) {
-    double d1,d2;
-    d1=this->Num()/this->Denom();
-    d2=ratio.Num()/ratio.Denom();
-    if (d1<d2) {
-        return true;
-    }
-    return false;
+    return (this->Num()/this->Denom()<ratio.Num()/ratio.Denom());
 
 }
 
 bool Ratio::operator<=(const Ratio &ratio) {
-    double d1,d2;
-    d1=this->Num()/this->Denom();
-    d2=ratio.Num()/ratio.Denom();
-    if (d1<=d2) {
-        return true;
-    }
-    return false;
+    return (this->Num()/this->Denom()<=ratio.Num()/ratio.Denom());
 }
 
 bool Ratio::operator>=(const Ratio &ratio) {
-    double d1,d2;
-    d1=this->Num()/this->Denom();
-    d2=ratio.Num()/ratio.Denom();
-    if (d1>=d2) {
-        return true;
-    }
-    return false;
+    return (this->Num()/this->Denom()>=ratio.Num()/ratio.Denom());
 }
 
 // Other operators : 
 
+Ratio Ratio::convert_to_percentage(){
+    return Ratio(this->Num()*100/this->Denom(), 100);
+}
+
 Ratio Ratio::inverse() const {
-    Ratio inv;
-    int a = this->Num();
-    inv.Num(this->Denom());
-    if (a<0) {
-        inv.Num(-inv.Num());
-        a=std::abs(a);
+    //assert((this->Num() != 0) && "error: division by zero not possible");
+    if (this->Num()>0) {
+        Ratio inv(this->Denom(),this->Num());
+        return inv.simplify();
     }
-    inv.Denom(a);
-    return inv.simplify();
+    else {
+        Ratio inv(-this->Denom(),std::abs(this->Num()));
+        return inv.simplify();
+    }
 }
 
 Ratio Ratio::abs() const {
@@ -188,7 +189,7 @@ Ratio Ratio::sqrt() const{
     return sqrt.simplify();
 }
 
-//Je propose de faire simple d'abord et de voir si on a le temps d'implémenter le triangle de Pascal
+
 Ratio Ratio::cos() const{
     float num = this->Num();
     float denom = this->Denom();
@@ -218,13 +219,18 @@ Ratio Ratio::exp() const{
     float num = this->Num();
     float denom = this->Denom();
     float exposant = num/denom;
-    //std::cout<< exposant<<std::endl;
-    //std::cout <<std::exp(exposant) << std::endl;
     return convert_float_to_ratio(std::exp(exposant),10);
 }
 
-Ratio convert_float_to_ratio(const double &d, int nbIter){
+Ratio Ratio::logE() const {
+        return convert_float_to_ratio((std::log(this->Num()))-(std::log(this->Denom())), 10);
+}
 
+Ratio Ratio::log10() const {
+    return convert_float_to_ratio((std::log10(this->Num()))-(std::log10(this->Denom())), 10);
+}
+
+Ratio convert_float_to_ratio(const double &d, int nbIter){
     if (d==0) {
         return Ratio(0,1);
     }
@@ -239,6 +245,10 @@ Ratio convert_float_to_ratio(const double &d, int nbIter){
     return Ratio(q,1)+convert_float_to_ratio(d-double(q), nbIter-1);
     }
     return Ratio(0,1);
+}
+
+float Ratio::convert_ratio_to_float(){
+    return static_cast<float>(this->Num())/static_cast<float>(this->Denom());
 }
 
 Ratio Ratio::simplify() const {
