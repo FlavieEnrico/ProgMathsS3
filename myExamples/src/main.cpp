@@ -6,7 +6,7 @@
 
 int main()
 {
-    Ratio mult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,cos, sin, tan,pow,exp;
+    Ratio mult, floatMult, inversed, div, absolute, unitMinus, minus, add, convert,sqrt,cos, sin, tan,pow,exp;
     double testFloat=10.28;
 
     Ratio myRatio(1,2);
@@ -20,6 +20,9 @@ int main()
 
     mult = myRatio*myORatio;
     std::cout << "Test multiplication : " << mult << std::endl;
+
+    floatMult = myRatio*testFloat;
+    std::cout << "Test multiplication avec un flottant : " << floatMult << std::endl;
 
     inversed = myRatio.inverse();
     std::cout << "Test inverse : " << inversed << std::endl;

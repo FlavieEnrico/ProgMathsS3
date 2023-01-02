@@ -76,6 +76,12 @@ Ratio Ratio::operator*(const Ratio &r) const {
     return mult.simplify();
 }
 
+Ratio Ratio::operator*(const double &f) const {
+    Ratio r = convert_float_to_ratio(f, 10);
+    Ratio mult(r.Num()*this->Num(),r.Denom()*this->Denom());
+    return mult.simplify();
+}
+
 
 Ratio Ratio::operator/(const Ratio &r) const {
     return ((*this)*(r.inverse())).simplify();
@@ -246,4 +252,8 @@ Ratio Ratio::simplify() const {
 std::ostream &operator<<(std::ostream &os, const Ratio &r) {
     os << r.Num() << " / " << r.Denom();
     return os;
+}
+
+Ratio operator*(const double value, const Ratio &r){
+	return r * value;
 }

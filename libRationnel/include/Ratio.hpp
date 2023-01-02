@@ -107,6 +107,11 @@ public:
 	/// \return the rational number corresponding to the multiplication of the 2 others
     Ratio operator*(const Ratio &r) const;
 
+    /// \brief second overload of the * operator
+	/// \param  f: the float value to consider in the multiplication
+	/// \return the rational number corresponding to the multiplication of the current rational and the float
+    Ratio operator*(const double &f) const;
+
     /// \brief overload of the / operator
 	/// \param  r: the second rational number to consider in the division
 	/// \return the rational number corresponding to the division of the current rational by the the argument rational
@@ -200,5 +205,11 @@ std::ostream& operator<< (std::ostream& stream, const Ratio& r);
 /// \param nb_iter : the number of iterations
 /// \return the converted rational
 Ratio convert_float_to_ratio(const double &d, int nb_iter);
+
+/// \brief multiply a float with a rational number
+/// \param value : the float to consider in the multiplication
+/// \param r : the rational number to multiply with
+/// \return the result of the multiplication
+Ratio operator*(const double value, const Ratio &r);
 
 #endif
