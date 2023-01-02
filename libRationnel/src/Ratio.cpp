@@ -152,7 +152,7 @@ Ratio Ratio::convert_to_percentage(){
 }
 
 Ratio Ratio::inverse() const {
-    //assert((this->Num() != 0) && "error: division by zero not possible");
+    //assert(((*this).Num()!=0) && "On ne peut pas diviser par 0!");
     if (this->Num()>0) {
         Ratio inv(this->Denom(),this->Num());
         return inv.simplify();
@@ -174,15 +174,11 @@ Ratio Ratio::abs() const {
 }
 
 Ratio Ratio::sqrt() const{
+    assert(((*this).Num()>=0) && "On ne peut pas faire sqrt d'un négatif!");
     Ratio sqrt_Num;
     Ratio sqrt_Denom;
-    if(this->Num()>0){
     double sqrt_Num_d = std::sqrt(this->Num());
     sqrt_Num = convert_float_to_ratio(sqrt_Num_d,10);
-    }
-    else{
-        std::cout << "On peut pas faire sqrt d'un négatif!" << std::endl;
-    }
     double sqrt_Denom_d = std::sqrt(this->Denom());
     sqrt_Denom = convert_float_to_ratio(sqrt_Denom_d,10);
     Ratio sqrt = sqrt_Num/sqrt_Denom;
@@ -194,8 +190,6 @@ Ratio Ratio::cos() const{
     float num = this->Num();
     float denom = this->Denom();
     float cosarg = num/denom;
-    //std::cout<< cosarg<<std::endl;
-    //std::cout <<std::cos(cosarg) << std::endl;
     return convert_float_to_ratio(std::cos(cosarg),10).simplify();
 }
 
@@ -223,10 +217,16 @@ Ratio Ratio::exp() const{
 }
 
 Ratio Ratio::logE() const {
-        return convert_float_to_ratio((std::log(this->Num()))-(std::log(this->Denom())), 10);
+    if (this->Num()<=0){
+        throw std::out_of_range("On ne peut pas faire le logarithm d'un négatif!");
+    }
+    return convert_float_to_ratio((std::log(this->Num()))-(std::log(this->Denom())), 10);
 }
 
 Ratio Ratio::log10() const {
+    if (this->Num()<=0){
+        throw std::out_of_range("On ne peut pas faire le logarithm d'un négatif!");
+    }
     return convert_float_to_ratio((std::log10(this->Num()))-(std::log10(this->Denom())), 10);
 }
 

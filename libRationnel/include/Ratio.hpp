@@ -233,7 +233,7 @@ public:
 
     /// \brief convert the rational into a float
 	/// \return the given rational as a float
-    float Ratio::convert_ratio_to_float();
+    float convert_ratio_to_float();
 };
 
 /// \brief overload the operator << for Ratio
