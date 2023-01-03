@@ -31,8 +31,8 @@ Pour générer la documentation via Doxygen, se placer dans le dossier du build 
 
 La documentation sera accessible dans le dossier doc/doc-doxygen, et prendra la forme d'un index.html qui peut être ouvert dans le navigateur.
 
-Pour faire fonctionner les tests unitaires, merci de lancer les tests en local, en ajoutant la lib googletest au clone, pouvant être trouvé ici : [libraire googletest](https://github.com/google/googletest).
+Pour faire fonctionner les tests unitaires, merci de lancer les tests en local, en ajoutant la lib googletest au clone, pouvant être trouvé ici : [librairie googletest](https://github.com/google/googletest).
 
 ## Visionner le rapport en ligne : 
 
-Le rapport écrit relatif à la partie mathématique est accessible via le lien suivant : 
+Le rapport écrit relatif à la partie mathématique est accessible via le lien suivant : [lien vers le rapport](https://drive.google.com/file/d/1IQ4zpwf9ZZykNjy3meB1mqTtrApGl_zk/view?usp=sharing).
