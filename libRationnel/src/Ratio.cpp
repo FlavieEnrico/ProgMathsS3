@@ -8,7 +8,7 @@
 
 // Constructors 
 
-Ratio::Ratio() : m_num(), m_denom()
+Ratio::Ratio() : m_num(0), m_denom(1)
 {    
 }
 
@@ -110,39 +110,33 @@ Ratio& Ratio::operator/=(const Ratio &r) {
 
 //Comparison operators
 
-bool Ratio::operator==(const Ratio &ratio) {
-    this->simplify();
-    ratio.simplify();
-    if (this->Num()==ratio.Num() && this->Denom()==ratio.Denom()) {
-        return true;
-    }
-    return false;
+bool operator==(const Ratio & r1, const Ratio &r2) {
+    r1.simplify();
+    r2.simplify();
+    return (r1.Num() * r2.Denom()) == (r2.Num() * r1.Denom());
 }
 
-bool Ratio::operator!=(const Ratio &ratio) {
-    this->simplify();
-    ratio.simplify();
-    if (this->Num()!=ratio.Num() || this->Denom()!=ratio.Denom()) {
-        return true;
-    }
-    return false;
+bool operator!=(const Ratio & r1, const Ratio &r2) {
+    r1.simplify();
+    r2.simplify();
+    return !(r1 == r2);
 }
 
-bool Ratio::operator>(const Ratio &ratio) {
-    return (this->Num()/this->Denom()>ratio.Num()/ratio.Denom());
+bool operator>(const Ratio & r1, const Ratio &r2) {
+    return (r1.Num()*r2.Denom()>r2.Num()*r1.Denom());
 }
 
-bool Ratio::operator<(const Ratio &ratio) {
-    return (this->Num()/this->Denom()<ratio.Num()/ratio.Denom());
+bool operator<(const Ratio & r1, const Ratio &r2) {
+    return (r1.Num()*r2.Denom()<r2.Num()*r1.Denom());
 
 }
 
-bool Ratio::operator<=(const Ratio &ratio) {
-    return (this->Num()/this->Denom()<=ratio.Num()/ratio.Denom());
+bool operator<=(const Ratio & r1, const Ratio &r2) {
+    return (r1.Num()*r2.Denom()<=r2.Num()*r1.Denom());
 }
 
-bool Ratio::operator>=(const Ratio &ratio) {
-    return (this->Num()/this->Denom()>=ratio.Num()/ratio.Denom());
+bool operator>=(const Ratio & r1, const Ratio &r2) {
+    return (r1.Num()*r2.Denom()>=r2.Num()*r1.Denom());
 }
 
 // Other operators : 
@@ -174,7 +168,7 @@ Ratio Ratio::abs() const {
 }
 
 Ratio Ratio::sqrt() const{
-    assert(((*this).Num()>=0) && "On ne peut pas faire sqrt d'un négatif!");
+    assert(((*this).Num()>=0) && "Cannot compute square root of a negative number.");
     Ratio sqrt_Num;
     Ratio sqrt_Denom;
     double sqrt_Num_d = std::sqrt(this->Num());
@@ -218,14 +212,14 @@ Ratio Ratio::exp() const{
 
 Ratio Ratio::logE() const {
     if (this->Num()<=0){
-        throw std::out_of_range("On ne peut pas faire le logarithm d'un négatif!");
+        throw std::out_of_range("Cannot compute logarithm of a negative number.");
     }
     return convert_float_to_ratio((std::log(this->Num()))-(std::log(this->Denom())), 10);
 }
 
 Ratio Ratio::log10() const {
     if (this->Num()<=0){
-        throw std::out_of_range("On ne peut pas faire le logarithm d'un négatif!");
+        throw std::out_of_range("Cannot compute logarithm of a negative number.");
     }
     return convert_float_to_ratio((std::log10(this->Num()))-(std::log10(this->Denom())), 10);
 }

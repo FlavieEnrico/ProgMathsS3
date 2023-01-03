@@ -137,41 +137,6 @@ public:
 	/// \return the rational number corresponding to the division of the two rationals
     Ratio& operator/=(const Ratio &r);
 
-    /// \brief overload of the == operator
-	/// \param  r: the rational number which values you want to compare with the current rational
-	/// \return whether the two rational numbers are equivalent or not
-    bool operator==(const Ratio &ratio);
-
-    /// \brief overload of the != operator
-	/// \param  r: the rational number which values you want to compare with the current rational
-	/// \return whether the two rational numbers are equivalent or not
-    bool operator!=(const Ratio &ratio);
-
-
-
-
-    //Comparison operators
-
-    /// \brief overload of the > operator
-	/// \param  r: the rational number which values you want to compare with the current rational
-	/// \return whether the argument rational is less than the current rational
-    bool operator>(const Ratio &ratio);
-
-    /// \brief overload of the < operator
-	/// \param  r: the rational number which values you want to compare with the current rational
-	/// \return whether the argument rational is greater than the current rational
-    bool operator<(const Ratio &ratio);
-
-    /// \brief overload of the <= operator
-	/// \param  r: the rational number which values you want to compare with the current rational
-	/// \return whether the argument rational is greater than or equal to the current rational
-    bool operator<=(const Ratio &ratio);
-
-    /// \brief overload of the >= operator
-	/// \param  r: the rational number which values you want to compare with the current rational
-	/// \return whether the argument rational is less than or equal to the current rational
-    bool operator>=(const Ratio &ratio);
-
 
 
 
@@ -253,5 +218,46 @@ Ratio convert_float_to_ratio(const double &d, int nb_iter);
 /// \param r : the rational number to multiply with
 /// \return the result of the multiplication
 Ratio operator*(const double value, const Ratio &r);
+
+/// \brief overload of the == operator
+/// \param  r1: the first rational number to compare
+/// \param  r2: the second rational number to compare
+/// \return whether the two rational numbers are equivalent or not
+bool operator==(const Ratio & r1, const Ratio &r2);
+
+/// \brief overload of the != operator
+/// \param  r1: the first rational number to compare
+/// \param  r2: the second rational number to compare
+/// \return whether the two rational numbers are equivalent or not
+bool operator!=(const Ratio & r1, const Ratio &r2);
+
+
+
+
+//Comparison operators
+
+/// \brief overload of the > operator
+/// \param  r1: the first rational number to compare
+/// \param  r2: the second rational number to compare
+/// \return whether the argument rational is less than the current rational
+bool operator>(const Ratio & r1, const Ratio &r2);
+
+/// \brief overload of the < operator
+/// \param  r1: the first rational number to compare
+/// \param  r2: the second rational number to compare
+/// \return whether the argument rational is greater than the current rational
+bool operator<(const Ratio & r1, const Ratio &r2);
+
+/// \brief overload of the <= operator
+/// \param  r1: the first rational number to compare
+/// \param  r2: the second rational number to compare
+/// \return whether the argument rational is greater than or equal to the current rational
+bool operator<=(const Ratio & r1, const Ratio &r2);
+
+/// \brief overload of the >= operator
+/// \param  r1: the first rational number to compare
+/// \param  r2: the second rational number to compare
+/// \return whether the argument rational is less than or equal to the current rational
+bool operator>=(const Ratio & r1, const Ratio &r2);
 
 #endif
